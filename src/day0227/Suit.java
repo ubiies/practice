@@ -19,7 +19,7 @@ public enum Suit {
     public String getColor() {
         return this.color;
     }
-}
+}   
 
 class Card {
     private int number;
