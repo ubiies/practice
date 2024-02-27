@@ -17,9 +17,20 @@ public class Date {
     public Date() {
         // 생성자는 반드시 new 연산자 뒤에 와야됨
         // 생성자는 return 타입을 안씀
-        this.year = 1971;
-        this.month = 4;
-        this.day = 28;
+        // this 키워드는 자기 자신을 가리키는 것
+        // this.setDate(1971, 4, 17);
+        this(1971,4,28); // 생성자 호출
+    }
+
+    // 생성자 오버로딩
+    public Date(int year, int month, int day) {
+        this.year = year;
+        this.month = month;
+        this.day = day;
+    }
+
+    public Date(int year) {
+        this(year, 1, 1);
     }
 
     // getter, setter
@@ -55,5 +66,14 @@ class Test {
         System.out.println(date.getDate());
         date.setDate(1988, 11, 27);
         System.out.println(date.getDate());
+
+        // Object 타입인데, 인스턴스는 Date Type으로 선언됨
+        Object date2 = new Date();
+
+        Math.pow(2,2);
+        // Math class의 경우 생성자를 private으로 주기 때문에 객체 생성 x
+        // Math m = new Math(); 
+
+        
     }
 }
