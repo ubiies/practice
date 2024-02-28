@@ -79,9 +79,12 @@ public class LinkedList implements List {
     }
 
     @Override
+    public int size() {
+        return this.size;
+    }
+
+    @Override
     public void print() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'print'");
     }
 
     @Override
@@ -98,5 +101,10 @@ public class LinkedList implements List {
         str += temp.data;
         return str+"]";
     }
-    
+
+    @Override
+    public Iterator iterator() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'iterator'");
+    }
 }

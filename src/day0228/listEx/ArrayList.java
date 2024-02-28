@@ -42,6 +42,16 @@ public class ArrayList implements List {
     }
 
     @Override
+    public int size() {
+        return this.size;
+    }
+
+    @Override
+    public Iterator iterator() {
+        return new ArrayListIterator(this);
+    }
+
+    @Override
     public void print() {
         System.out.print("[");
         for (int i = 0; i < size; i++) {
