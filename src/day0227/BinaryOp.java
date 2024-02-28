@@ -6,6 +6,9 @@ public interface BinaryOp {
      */
     // 추상 메서드의 경우 default보다 낮게 설정하면 안됨
     public int apply(int i, int j); // 구현은 서브 클래스에서
+    default int apply(int i, int j, int k) {
+        return apply(apply(i,j),k);
+    }
 }
 
 class Adder implements BinaryOp {
@@ -13,5 +16,13 @@ class Adder implements BinaryOp {
     @Override
     public int apply(int i, int j) {
         return i+j;
+    }
+}
+
+class test {
+    public static void main(String[] args) {
+        BinaryOp b = new Adder();
+        b.apply(1, 2);
+        b.apply(1, 2, 3);
     }
 }
