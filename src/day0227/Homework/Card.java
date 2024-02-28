@@ -30,6 +30,9 @@ enum Suit {
     }
 }
 
+/**
+ * Card와 관련된 클래스
+ */
 public class Card implements Comparable<Card> {
     private int number;
     private Suit shape;
@@ -58,10 +61,13 @@ public class Card implements Comparable<Card> {
 
     @Override
     public String toString() {
-        return this.number + " of " + this.shape;
+        return this.number + " of " + this.shape.getColor() + " " + this.shape;
     }
 }
 
+/**
+ * Deck에 관련된 클래스
+ */
 class Deck {
     private List<Card> cards;
 
@@ -75,8 +81,28 @@ class Deck {
         }
     }
 
+    /*
+     * 카드를 섞는 메서드
+     */
     public void shuffle() {
         Collections.shuffle(cards);
+    }
+
+    /*
+     * 카드 나눠주는 메서드
+     */
+    public List<List<Card>> dealCards(int players, int cardsPerPlayer) {
+        shuffle();
+        List<List<Card>> list = new ArrayList<>();
+
+        for(int i=0;i<players;i++) {
+            List<Card> playersCards = new ArrayList<>();
+            for(int j=0;j<cardsPerPlayer;j++) {
+                playersCards.add(cards.remove(cards.size()-1));
+            }
+            list.add(playersCards);
+        }
+        return list;
     }
 
     /*
@@ -93,12 +119,18 @@ class Deck {
 class Test {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("몇명이 게임에 참여합니끼? ");
+        System.out.println("몇명이 게임에 참여합니까? ");
         int player = sc.nextInt();
 
         Deck gameDeck = new Deck();
-        gameDeck.shuffle();
+
+        // 52개의 카드
         System.out.println(gameDeck.toString());
+
+        // 카드 나눠주기
+        gameDeck.dealCards(player, 52/player);
+
+
 
         /**
          * 게임 구현 메서드...
@@ -107,3 +139,7 @@ class Test {
         sc.close();
     }
 }
+
+// if (index >= size || index < 0) {
+//     throw new IndexOutOfBoundsException("Invalid index: " + index);
+// }
