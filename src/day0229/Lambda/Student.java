@@ -57,6 +57,9 @@ class Test3 {
         // 익명 클래스를 람다식으로 줄여 사용이 가능함
         Function f = x -> System.out.println(x);
         s.printName(f);
+
+        Student ss = new Student(2, "eunbi");
+        ss.printName(System.out::println);
     }
 }
 
@@ -66,3 +69,20 @@ class Test3 {
  * 익명 클래스 :
  * 람다식 : 
  */
+
+
+ /*
+  * 각각의 동작을 람다로 구현 가능
+  */
+
+  /*
+   * protos종족을 리스트를 만들어서 방어력 별로 sorting이 가능해짐
+   * 각각의 동작을 람다로 구현 가능
+   * list iterable이면 foreach문을 이용해서 쫙 돌릴 수 있음
+   * 모든 객체 지향 지식을 동원해서... 게임 만들기
+   * 게임을 만든 다음 제출하고, 문제 2번을 추가
+   * 그런데 2-3줄만 수정하고 추가가 가능하도록 잘 짜야 함
+   * 클래스 하위를 고치지 않는 선에서 수정할 수 있도록 하는 것이 좋음
+   * 2가지 버전을 제출 (1번, 1번에 2번 추가) 숙제
+   * 
+   */
